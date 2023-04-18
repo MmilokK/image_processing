@@ -36,7 +36,7 @@ namespace scoi_L1
         public Form1()
         {
             InitializeComponent();
-            comboBox1.SelectedItem = "RGB";
+            channalBox.SelectedItem = "RGB";
         }
 
 
@@ -121,120 +121,68 @@ namespace scoi_L1
 
             }
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void channelBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //img_out = new Bitmap("..\\..\\out.jpg");
             int h = 0;
             var w = 0;
-            if (img_out!=null)
+            if (img_out != null)
             {
                 h = img_out.Height;
                 w = img_out.Width;
                 var newImg_out = new Bitmap(w, h);
 
-            switch (comboBox1.SelectedItem)
-            {
-                case "RGB":
+                for (int i = 0; i < h; ++i)
+                {
+                    for (int j = 0; j < w; ++j)
                     {
-                        pictureBox3.Image = img_out;
-                        break;
-                    }
-                case "R":
-                    {
-                        for (int i = 0; i < h; ++i)
-                        {
-                            for (int j = 0; j < w; ++j)
-                            {
-                                var pix = img_out.GetPixel(j, i);
-                                int r = pix.R;
+                        var pix = img_out.GetPixel(j, i);
+                        int r = pix.R;
+                        int g = pix.G;
+                        int b = pix.B;
 
-                                pix = Color.FromArgb(r, 0, 0);
-                                newImg_out.SetPixel(j, i, pix);
-                            }
-                        }
-                        pictureBox3.Image = newImg_out;
-                        break;
-                    }
-                case "G":
-                    {
-                        for (int i = 0; i < h; ++i)
+                        switch (channalBox.SelectedItem)
                         {
-                            for (int j = 0; j < w; ++j)
-                            {
-                                var pix = img_out.GetPixel(j, i);
-                                int g = pix.G;
-                                pix = Color.FromArgb(0, g, 0);
-                                newImg_out.SetPixel(j, i, pix);
-                            }
+                            case "RGB":
+                                {
+                                    break;
+                                }
+                            case "R":
+                                {
+                                    pix = Color.FromArgb(r, 0, 0);
+                                    break;
+                                }
+                            case "G":
+                                {
+                                    pix = Color.FromArgb(0, g, 0);
+                                    break;
+                                }
+                            case "B":
+                                {
+                                    pix = Color.FromArgb(0, 0, b);
+                                    break;
+                                }
+                            case "RG":
+                                {
+                                    pix = Color.FromArgb(r, g, 0);
+                                    break;
+                                }
+                            case "RB":
+                                {
+                                    pix = Color.FromArgb(r, 0, b);
+                                    break;
+                                }
+                            case "GB":
+                                {
+                                    pix = Color.FromArgb(0, g, b);
+                                    break;
+                                }
+                            default: break;     
                         }
+                        newImg_out.SetPixel(j, i, pix);
                         pictureBox3.Image = newImg_out;
-                        break;
                     }
-                case "B":
-                    {
-                        for (int i = 0; i < h; ++i)
-                        {
-                            for (int j = 0; j < w; ++j)
-                            {
-                                var pix = img_out.GetPixel(j, i);
-                                int b = pix.B;
-                                pix = Color.FromArgb(0, 0, b);
-                                newImg_out.SetPixel(j, i, pix);
-                            }
-                        }
-                        pictureBox3.Image = newImg_out;
-                        break;
-                    }
-                case "RG":
-                    {
-                        for (int i = 0; i < h; ++i)
-                        {
-                            for (int j = 0; j < w; ++j)
-                            {
-                                var pix = img_out.GetPixel(j, i);
-                                int r = pix.R;
-                                int g = pix.G;
-                                pix = Color.FromArgb(r, g, 0);
-                                newImg_out.SetPixel(j, i, pix);
-                            }
-                        }
-                        pictureBox3.Image = newImg_out;
-                        break;
-                    }
-                case "RB":
-                    {
-                        for (int i = 0; i < h; ++i)
-                        {
-                            for (int j = 0; j < w; ++j)
-                            {
-                                var pix = img_out.GetPixel(j, i);
-                                int r = pix.R;
-                                int b = pix.B;
-                                pix = Color.FromArgb(r, 0, b);
-                                newImg_out.SetPixel(j, i, pix);
-                            }
-                        }
-                        pictureBox3.Image = newImg_out;
-                        break;
-                    }
-                case "GB":
-                    {
-                        for (int i = 0; i < h; ++i)
-                        {
-                            for (int j = 0; j < w; ++j)
-                            {
-                                var pix = img_out.GetPixel(j, i);
-                                int g = pix.G;
-                                int b = pix.B;
-                                pix = Color.FromArgb(0, g, b);
-                                newImg_out.SetPixel(j, i, pix);
-                            }
-                        }
-                        pictureBox3.Image = newImg_out;
-                        break;
-                    }
-                default: break;
-            }
+                }
             }
 
         }

@@ -39,7 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.channalBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -146,10 +146,10 @@
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 9;
             // 
-            // comboBox1
+            // channalBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.channalBox.FormattingEnabled = true;
+            this.channalBox.Items.AddRange(new object[] {
             "RGB",
             "R",
             "G",
@@ -157,11 +157,11 @@
             "RG",
             "RB",
             "GB"});
-            this.comboBox1.Location = new System.Drawing.Point(167, 584);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.channalBox.Location = new System.Drawing.Point(167, 584);
+            this.channalBox.Name = "channalBox";
+            this.channalBox.Size = new System.Drawing.Size(121, 21);
+            this.channalBox.TabIndex = 10;
+            this.channalBox.SelectedIndexChanged += new System.EventHandler(this.channelBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -178,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 656);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.channalBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -212,7 +212,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox channalBox;
         private System.Windows.Forms.Label label5;
     }
 }
