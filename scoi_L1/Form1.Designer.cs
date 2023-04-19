@@ -36,11 +36,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonFunction = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.channalBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.FunctionBox = new System.Windows.Forms.ComboBox();
+            this.MaskBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -118,25 +120,25 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Совместное изображение";
             // 
-            // button1
+            // buttonSave
             // 
-            this.button1.Location = new System.Drawing.Point(974, 607);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 37);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Сохранить файл";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSave.Location = new System.Drawing.Point(974, 607);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(139, 37);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Сохранить файл";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // button2
+            // buttonFunction
             // 
-            this.button2.Location = new System.Drawing.Point(809, 607);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 37);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Функция";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonFunction.Location = new System.Drawing.Point(809, 607);
+            this.buttonFunction.Name = "buttonFunction";
+            this.buttonFunction.Size = new System.Drawing.Size(139, 37);
+            this.buttonFunction.TabIndex = 8;
+            this.buttonFunction.Text = "Функция";
+            this.buttonFunction.UseVisualStyleBackColor = true;
+            this.buttonFunction.Click += new System.EventHandler(this.buttonFunction_Click);
             // 
             // label4
             // 
@@ -172,16 +174,48 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Каналы";
             // 
+            // FunctionBox
+            // 
+            this.FunctionBox.FormattingEnabled = true;
+            this.FunctionBox.Items.AddRange(new object[] {
+            "Сумма",
+            "Среднее арифметическое",
+            "Произведение",
+            "Минимум",
+            "Максимум",
+            "Маска"});
+            this.FunctionBox.Location = new System.Drawing.Point(564, 567);
+            this.FunctionBox.Name = "FunctionBox";
+            this.FunctionBox.Size = new System.Drawing.Size(180, 21);
+            this.FunctionBox.TabIndex = 12;
+            this.FunctionBox.SelectedIndexChanged += new System.EventHandler(this.FunctionBox_SelectedIndexChanged);
+            // 
+            // MaskBox
+            // 
+            this.MaskBox.FormattingEnabled = true;
+            this.MaskBox.Items.AddRange(new object[] {
+            "круг",
+            "квадрат",
+            "прямоугольник"});
+            this.MaskBox.Location = new System.Drawing.Point(564, 607);
+            this.MaskBox.Name = "MaskBox";
+            this.MaskBox.Size = new System.Drawing.Size(180, 21);
+            this.MaskBox.TabIndex = 13;
+            this.MaskBox.Visible = false;
+            this.MaskBox.SelectedIndexChanged += new System.EventHandler(this.MaskBox_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 656);
+            this.Controls.Add(this.MaskBox);
+            this.Controls.Add(this.FunctionBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.channalBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonFunction);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -191,6 +225,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -209,11 +244,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonFunction;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox channalBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox FunctionBox;
+        private System.Windows.Forms.ComboBox MaskBox;
     }
 }
 
